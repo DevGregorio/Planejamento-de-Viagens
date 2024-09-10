@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: #03152e;
+    color: #ffffff;
+}
+
+.section {
+    padding: 5em;
+}
+
+.div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.titulo {
+    margin-bottom: 2em;
+    font-size: 3rem;
+    font-style: oblique;
+}
+
+.input,
+.botao,
+.botaoRemover {
+    padding: 4px;
+    font-size: 20px;
+    outline: none;
+    border-radius: 5px;
+    margin: 0.5em 0;
+}
+
+.res {
+    display: block;
+    gap: 2rem;
+
+}
+
+li {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.valorTotal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+footer {
+    margin-top: 2em;
+    font-size: 2rem;
+}

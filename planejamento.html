@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento de Viagens</title>
+    <link rel="stylesheet" href="./planejamento.css">
+</head>
+
+<body class="body">
+    <section class="section">
+        <h1 class="titulo">Planejamento de Viagens - Destinos e Valores</h1>
+        <div class="div">
+            <h2>Atividade (Mobilidade, Estadia, Atrações)</h2> <input type="text" id="text" class="input">
+            <h2>Valores (R$)</h2> <input type="number" id="tnum" class="input">
+            <input type="button" id="botao" value="Adicionar" class="botao" onclick="adicionar()">
+        </div>
+    </section>
+    <div id="div">
+        <ul id="res" class="res"></ul>
+    </div>
+
+    <section class="valorTotal">
+        <h2>Valor total:</h2> <input type="button" id="calcular" value="Calcular" class="botao" onclick="somar()">
+        <h2 id="valorTotal"></h2>
+    </section>
+    <footer>Desenvolvido por Felipe Gregório</footer>
+
+    <script src="./planejamento.js"></script>
+</body>
+
+</html>
