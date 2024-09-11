@@ -56,6 +56,39 @@ li {
 }
 
 footer {
-    margin-top: 2em;
+    margin-top: 6em;
     font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+    .titulo {
+        margin-bottom: 2em;
+        font-size: 2rem;
+        font-style: oblique;
+    }
+
+    .input,
+    .botao,
+    .botaoRemover {
+        padding: 3px;
+        font-size: 15px;
+        outline: none;
+        border-radius: 5px;
+        margin: 0.5em 0;
+    }
+
+    .div {
+        display: block;
+    }
+
+    li {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+
+    footer {
+        margin-top: 6em;
+        font-size: 1.4rem;
+    }
 }
