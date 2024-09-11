@@ -1,10 +1,13 @@
-const atividade = document.getElementById('text')
-const res = document.getElementById('res')
-const tvalor = document.getElementById('tnum')
-const valor = tvalor.value
-let array = []
-let numArray = []
+const atividade = document.getElementById('text');
+const listaItems = document.getElementById('listaItems');
+const tvalor = document.getElementById('tnum');
+const valor = tvalor.value;
+//let array = []
+let numArray = [];
 
+function format(value) {
+    return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", }).format(value);
+}
 
 function adicionar() {
     const nomeAtividade = atividade.value
@@ -15,18 +18,19 @@ function adicionar() {
         alert('Escreva um motivo no campo determinado!')
     } else {
         const li = document.createElement('li')
-        li.innerHTML = ` ${nomeAtividade} - ${valorReal} reais <button 
-        class="botaoRemover" onclick="remover()"> Remover </button>`;
-        res.appendChild(li)
-        array.push(tvalor.value)
+        li.innerHTML = `<span data-value="${valorReal}">${nomeAtividade} - ${format(valorReal)} reais </span> <button 
+        class="botaoRemover" onclick="remover()"> Remover </button>`
+        listaItems.appendChild(li)
+        somar()
+        limparForm()
     }
 }
 
 function remover() {
     const li = event.target.parentElement;
-    res.removeChild(li)
-    array.pop()
-    numArray.pop()
+    listaItems.removeChild(li)
+    somar()
+    limparForm()
 }
 
 atividade.addEventListener
@@ -37,15 +41,25 @@ atividade.addEventListener
         }
     });
 
+tvalor.addEventListener
+    ('keypress', function (event) {
+
+        if (event.key === 'Enter') {
+            adicionar();
+        }
+    });
+
 function somar() {
     const valorTotal = document.getElementById('valorTotal')
-    for (let i = 0; i < array.length; i++) {
-        numArray.push(Number(array[i]));
-    }
-    let soma = 0
-    for (let i = 0; i < numArray.length; i++) {
-        soma += numArray[i]
-    }
+    const elements = document.getElementsByTagName("span")
+    const arr = [].slice.call(elements)
+    const arr2 = arr.map((el) => el.dataset.value);
+    const soma = arr2.reduce((pv, cv) => Number(pv) + Number(cv), 0)
 
-    valorTotal.innerHTML = `${soma} reais`
+    valorTotal.innerHTML = `${format(soma)} reais`
+}
+
+function limparForm() {
+    atividade.value = ''
+    tvalor.value = ''
 }
